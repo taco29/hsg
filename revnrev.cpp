@@ -3,6 +3,7 @@
 #define ll long long
 #define PI acos(-1)
 #define tron(x) setprecision(x) << fixed
+#define FOR for(int i = 1; i <= n; i++)
 #define cc "revnrev"
 using namespace std;
 
@@ -12,21 +13,31 @@ int main(){
         freopen(cc".inp","r",stdin);
         freopen(cc".out", "w", stdout);
     }
-    ll n;
-    int k, u, v, l, r;
+    ll k;
+    int n, u, v, l, r, chuki = 0;
     cin >> n >> k ;
     cin >> u >> v >> l >> r;
-    vector<int> a(n+1);
-    for(int i = 1; i <= n; i++){
+    vector<int> a(n+1), b(n+1);
+    FOR{
     	 a[i] = i;
+         b[i] = i;
 	}
-    for(int i = 0; i < k; i++) {
+    while (a != b || chuki == 0) {
+        chuki++;
         reverse(a.begin() + u, a.begin() + v + 1);
         reverse(a.begin() + l, a.begin() + r + 1);
+        if (chuki == k) break;
     }
-    for(int i = 1; i <= n; i++){
+    
+    if (chuki < k) {
+        k %= chuki;
+        for(int i = 0; i < k; i++) {
+            reverse(a.begin() + u, a.begin() + v + 1);
+            reverse(a.begin() + l, a.begin() + r + 1);
+        }
+    }
+    FOR{
          cout << a[i] << endl;
     }
     return 0;
 }
-//10/20
