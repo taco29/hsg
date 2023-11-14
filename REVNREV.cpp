@@ -41,3 +41,7 @@ int main(){
     }
     return 0;
 }
+<<<<<<< HEAD:revnrev.cpp
+=======
+//10/20
+>>>>>>> 1c22e69062a08dc3059e2d94822ef60b09ac49a7:REVNREV.cpp
